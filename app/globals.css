@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --background: #f5f4f1;
+  --foreground: #202723;
+  --surface: #fffefa;
+  --surface-muted: #f7f6f2;
+  --line: #e8e7e1;
+  --ink-muted: #737b76;
+  --accent: #607568;
+  --accent-strong: #4b6255;
+  --accent-wash: #edf2ed;
+  --sidebar: #17211f;
+  --sidebar-deep: #111a19;
+  --brass: #c5aa7a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline-color: var(--accent);
+}
+
+.crm-shell {
+  --sidebar-width: 264px;
+  background:
+    radial-gradient(ellipse at 75% -18%, rgb(223 218 203 / 24%), transparent 42%),
+    var(--background);
+}
+
+.crm-sidebar {
+  width: 286px;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgb(95 117 103 / 18%), transparent 38%),
+    linear-gradient(165deg, var(--sidebar) 0%, #17201f 55%, var(--sidebar-deep) 100%);
+  box-shadow: inset -1px 0 rgb(255 255 255 / 5%);
+  overflow-x: hidden;
+}
+
+.crm-logo-mark {
+  background: linear-gradient(145deg, #667d6c 0%, #35473d 55%, #26332e 100%);
+  box-shadow:
+    inset 0 1px rgb(255 255 255 / 22%),
+    0 7px 20px rgb(5 10 8 / 28%);
+}
+
+.crm-logo-mark::after {
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--brass);
+  box-shadow: 0 0 9px rgb(197 170 122 / 65%);
+  content: "";
+}
+
+.crm-nav-item.is-active {
+  background: linear-gradient(105deg, rgb(197 170 122 / 14%), rgb(197 170 122 / 5%));
+  box-shadow: inset 0 0 0 1px rgb(197 170 122 / 14%);
+  color: #f1eee5;
+}
+
+.crm-nav-item.is-active::before {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: -1px;
+  width: 2px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #ddc69b, #9f8961);
+  content: "";
+}
+
+.crm-avatar {
+  border: 1px solid rgb(214 200 168 / 35%);
+  background: linear-gradient(145deg, #a89976, #6e7c70 75%);
+  color: #fffdf6;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+}
+
+.crm-header {
+  background-color: rgb(255 254 250 / 94%);
+  border-color: rgb(224 222 214 / 82%);
+}
+
+.crm-primary-button {
+  background: linear-gradient(140deg, #667d6c, #4d6557);
+  box-shadow: 0 4px 11px rgb(61 81 68 / 16%);
+}
+
+.crm-primary-button:hover {
+  background: linear-gradient(140deg, #596f60, #405749);
+  box-shadow: 0 6px 16px rgb(61 81 68 / 21%);
+  transform: translateY(-1px);
+}
+
+.crm-primary-button:active {
+  transform: translateY(0);
+}
+
+.crm-dialog {
+  border: 1px solid rgb(232 231 225 / 90%);
+  background: var(--surface);
+  box-shadow: 0 24px 80px rgb(20 29 24 / 22%);
+}
+
+.crm-dialog h2 {
+  letter-spacing: -0.035em;
+}
+
+.crm-content > section > h2,
+.crm-content h3 {
+  letter-spacing: -0.018em;
+}
+
+.crm-property-heading {
+  background:
+    radial-gradient(ellipse at 90% 0%, rgb(197 170 122 / 16%), transparent 48%),
+    linear-gradient(135deg, #202c28 0%, #3b5146 100%);
+}
+
+.crm-property-card {
+  box-shadow: 0 2px 6px rgb(38 43 39 / 3%), 0 14px 36px rgb(38 43 39 / 5%);
+  transition:
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.crm-property-card:hover {
+  box-shadow: 0 5px 12px rgb(38 43 39 / 5%), 0 20px 46px rgb(38 43 39 / 8%);
+  transform: translateY(-2px);
+}
+
+.crm-content [class~="bg-white"],
+.crm-content [class~="bg-white/95"] {
+  background-color: var(--surface);
+}
+
+.crm-content [class*="border-slate-200"] {
+  border-color: var(--line);
+}
+
+.crm-content [class*="shadow-sm"] {
+  box-shadow: 0 1px 2px rgb(38 43 39 / 3%), 0 8px 26px rgb(38 43 39 / 3%);
+}
+
+.crm-content [class*="text-slate-800"],
+.crm-content [class*="text-[#17243b]"] {
+  color: #252e29;
+}
+
+.crm-content [class*="text-slate-500"],
+.crm-content [class*="text-slate-400"] {
+  color: var(--ink-muted);
+}
+
+.crm-content [class*="bg-slate-50"] {
+  background-color: var(--surface-muted);
+}
+
+.crm-content [class*="bg-blue-50"] {
+  background-color: var(--accent-wash);
+}
+
+.crm-content [class*="text-blue-700"],
+.crm-content [class*="text-blue-800"],
+.crm-content [class*="text-blue-600"] {
+  color: var(--accent-strong);
+}
+
+.crm-content [class*="border-blue-100"],
+.crm-content [class*="border-blue-200"] {
+  border-color: #dce5dc;
+}
+
+.crm-content input:not([type="checkbox"]),
+.crm-content select,
+.crm-content textarea {
+  border-color: #e3e2dc;
+  border-radius: 0.75rem;
+  background-color: #fffefa;
+  color: #252e29;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.crm-content input:not([type="checkbox"]):focus,
+.crm-content select:focus,
+.crm-content textarea:focus {
+  border-color: #87988b;
+  box-shadow: 0 0 0 3px rgb(96 117 104 / 12%);
+  outline: none;
+}
+
+.crm-content table thead {
+  background: #f6f5f1;
+}
+
+.crm-content table th {
+  color: #737b76;
+  font-weight: 600;
+}
+
+.crm-content table tbody tr {
+  transition: background-color 150ms ease;
+}
+
+.crm-content table tbody tr:hover {
+  background-color: #faf9f5;
+}
+
+.crm-content button:not(:disabled) {
+  transition-duration: 180ms;
+}
+
+.crm-content button:focus-visible,
+.crm-header button:focus-visible {
+  outline: 2px solid #718678;
+  outline-offset: 2px;
+}
+
+@media (min-width: 1024px) {
+  .crm-shell {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    transition: grid-template-columns 280ms ease-in-out;
+  }
+
+  .crm-sidebar {
+    width: var(--sidebar-width);
+    min-width: 0;
+    flex-shrink: 1;
+    transition: width 280ms ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
